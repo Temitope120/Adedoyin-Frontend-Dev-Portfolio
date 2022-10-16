@@ -1,0 +1,209 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+:root{
+    --ff-primary:'Poppins', sans-serif;
+    --ff-secondary:'Roboto', sans-serif;
+    --fw-reg: 300;
+    --fw-bold: 900;
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    --clr-grey: #C5CED3;
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs:0.25em 0.25em 0.75em rgba(0,0,0,.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,0.15)
+}
+
+/* general styles */
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+section{
+    padding: 5em 2em;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/* strong{font-weight: var(--fw-bold);} */
+:focus{
+    outline: 3px solid #8CB1BA;
+    outline-offset: 3px;
+}
+.btn{
+    display: inline-block;
+    padding: .5em 2.5em;
+    /* background: var(--clr-grey); */
+    background-color: #8CB1BA;
+    color: var(--clr-dark);
+    text-decoration: none;
+    color: pointer
+    ;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform
+    200ms ease-in-out;
+    border-radius: 5px;
+}
+.btn:hover{
+    transform: scale(1.1);
+}
+/* typography */
+
+h1,h2,h3{
+    line-height: 1;
+    margin: 0;
+}
+h1{font-size: var(--fs-h1) ;}
+h2{font-size: var(--fs-h2) ;}
+h3{font-size: var(--fs-h3) ;}
+
+.section__title{
+    margin-bottom: .25em;
+
+}
+.section-title--intro{
+    font-weight:  var(--fw-reg);
+}
+.section-title-intro b{
+    display: block;
+}
+.section__subtitle{
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+.section-subtitle--intro, .section__subtitle--about{
+    background-color: var(--clr-grey);
+    font-family: var(--ff-primary);
+    margin-bottom: 1em;
+    padding: .25em 1em;
+}
+
+nav{
+    display: none;
+}
+.intro{
+    position: relative;
+}
+.intro__img{
+    box-shadow: var(--bs);
+}
+
+.my-services{
+    background-color:#2F2F2F;
+    color: var(--clr-light);
+    background-image: url('img/services-bg.jpg');
+    background-size: cover;
+    text-align: center;
+    /* background-blend-mode:multiply */
+}
+.service{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.section-title-service::after{
+    content: '';
+    display: block;
+    width: 25%;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background:var(--clr-light);
+    opacity: 0.25
+}
+
+.about{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.about__img{
+    box-shadow: var(--bs);
+}
+
+
+@media (min-width:600px){
+    .intro{
+        display: grid;
+        grid-column-gap: 1em;
+        width: min-content;
+        margin: 0 auto;
+        grid-template-areas:
+        "img title"
+        "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    .intro__img{
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }
+    .section-subtitle--intro{
+        align-self: start;
+        grid-column: -1/1;
+        grid-row: 2;
+        text-align: right;
+        text-transform: uppercase;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+
+    
+    .about{
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+        "title img"
+        "subtitle img"
+        "text img";
+        grid-column-gap: 2em;
+
+    }
+    .section-title-about{
+        grid-area: title;
+    }
+    .about__img{
+        grid-area: img;
+    }
+    .section__subtitle--about{
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left:2em ;
+        padding-right: calc(200px + 4em);
+    }
+
+}
+@media (min-width: 800px){
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2:3.75rem;
+        --fs-h3:1.5rem;
+        --fs-body: 1.125rem;
+    }
+    .services{
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .services .service{
+        margin-left: 2em;
+    }
+}
+
