@@ -1,0 +1,12 @@
+.section-subtitle--intro{
+    align-self: start;
+    grid-column: -1/1;
+    grid-row: 2;
+    text-align: right;
+    text-transform: uppercase;
+    position: relative;
+    left: -1.5em;
+    width: calc(100% + 1.5em);
+    max-width: 400px;
+}
+
